@@ -23,3 +23,20 @@ class Solution {
         return -1;
     }
 }
+
+
+OPTIMIZATION USING TWO VARIABLES
+    class Solution {
+    public int pivotIndex(int[] nums) {
+        int total_sum=0;
+        int curr_sum=0;
+        for(int x:nums)total_sum+=x;
+        for(int i=0;i<nums.length;i++){
+            curr_sum+=nums[i];
+            int left_sum=curr_sum-nums[i];
+            int right_sum=total_sum-curr_sum;
+            if(left_sum==right_sum)return i;
+        }
+        return -1;
+    }
+}
